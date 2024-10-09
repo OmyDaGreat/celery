@@ -1,6 +1,8 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
+val ktorV = "2.3.12"
+
 plugins {
   alias(libs.plugins.kotlinMultiplatform)
   alias(libs.plugins.androidApplication)
@@ -25,6 +27,7 @@ kotlin {
     androidMain.dependencies {
       implementation(compose.preview)
       implementation(libs.androidx.activity.compose)
+      implementation(libs.ktor.client.android)
     }
     commonMain.dependencies {
       implementation(compose.runtime)
@@ -35,6 +38,12 @@ kotlin {
       implementation(compose.components.uiToolingPreview)
       implementation(libs.androidx.lifecycle.viewmodel)
       implementation(libs.androidx.lifecycle.runtime.compose)
+      implementation(libs.kmpalette.core)
+      implementation(libs.kmpalette.extensions.network)
+      implementation(libs.ktor.client.core)
+    }
+    iosMain.dependencies {
+      implementation(libs.ktor.client.darwin)
     }
   }
 }
