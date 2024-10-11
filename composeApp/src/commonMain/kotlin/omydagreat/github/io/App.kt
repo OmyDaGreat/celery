@@ -9,6 +9,7 @@ import omydagreat.github.io.Common.Global
 import omydagreat.github.io.Common.Screen
 import omydagreat.github.io.Details.DetailsScreen
 import omydagreat.github.io.Home.HomeScreen
+import omydagreat.github.io.Stocks.StocksScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 /**
@@ -23,6 +24,7 @@ fun App() {
       when (Global.currentScreen) {
         is Screen.Home -> HomeScreen { screen -> Global.currentScreen = screen }
         is Screen.Details -> DetailsScreen { Global.currentScreen = Screen.Home }
+        is Screen.Stocks -> StocksScreen { Global.currentScreen = Screen.Home }
       }
     }
   }

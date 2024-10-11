@@ -26,6 +26,10 @@ fun HomeScreen(onNavigate: (Screen) -> Unit) {
       Button(onClick = { onNavigate(Screen.Details) }) {
         Text("Go to Details")
       }
+      Spacer(modifier = Modifier.height(16.dp))
+      Button(onClick = { onNavigate(Screen.Stocks) }) {
+        Text("Go to Stocks")
+      }
     }
   }
 }

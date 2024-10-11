@@ -16,4 +16,9 @@ sealed class Screen(val route: String) {
    * Represents the Details screen.
    */
   object Details : Screen("details")
+
+  /**
+   * Represents the Stocks screen.
+   */
+  object Stocks : Screen("stocks")
 }
