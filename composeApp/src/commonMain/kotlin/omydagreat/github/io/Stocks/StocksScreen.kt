@@ -21,26 +21,37 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import omydagreat.github.io.Common.Global
 
+/**
+ * Composable function that displays stock information.
+ *
+ * @param onNavigate A lambda function that is called when the "Go to Home" button is clicked.
+ */
 @Composable
 fun StocksScreen(onNavigate: () -> Unit) {
+  // State to hold the stock information
   var stockInfo by remember { mutableStateOf("Loading...") }
   val coroutineScope = rememberCoroutineScope()
 
+  // Fetch stock information when the composable is first launched
   LaunchedEffect(Unit) {
     coroutineScope.launch {
-      stockInfo = fetchStockSummary()
+      stockInfo = fetchStockSummary("AAPL").toString()
     }
   }
 
+  // Main UI layout
   Box(
     modifier = Modifier.fillMaxSize(),
     contentAlignment = Alignment.Center
   ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
+      // Display the title
       Text(text = "Stock Information", style = MaterialTheme.typography.h4, color = Global.theme.onBackground)
       Spacer(modifier = Modifier.height(16.dp))
-      Text(text = stockInfo)
+      // Display the stock information
+      Text(text = stockInfo, style = MaterialTheme.typography.body1, color = Global.theme.onBackground)
       Spacer(modifier = Modifier.height(16.dp))
+      // Button to navigate back to the home screen
       Button(onClick = { onNavigate() }) {
         Text("Go to Home")
       }
