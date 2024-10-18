@@ -7,6 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import omydagreat.github.io.Common.Global
+import omydagreat.github.io.Common.ThemeType
 import omydagreat.github.io.Common.Util.*
 
 @Composable
@@ -25,20 +26,17 @@ fun DetailsScreen(onNavigate: () -> Unit) {
       }
       Spacer(modifier = Modifier.height(16.dp))
       Button(onClick = { Global.toggleTheme() }) {
-        Body2("Toggle ${"Light".takeIf { !Global.isLightMode } ?: "Dark"} Mode")
+        Body2("Toggle ${"Light".takeIf { !Global.theme.isLightMode } ?: "Dark"} Mode")
       }
       Spacer(modifier = Modifier.height(16.dp))
       Box {
         Button(onClick = { expanded = true }) {
           Body2("Select Theme")
         }
-        DropdownMenu(
-          expanded = expanded,
-          onDismissRequest = { expanded = false }
-        ) {
+        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
           themes.forEach { themeType ->
             DropdownMenuItem(onClick = {
-              Global.themeType = themeType
+              Global.theme = themeType
               expanded = false
             }) {
               Body2(text = themeType.name)

@@ -5,17 +5,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
-import omydagreat.github.io.Common.Util.ThemeType
+import omydagreat.github.io.Common.Util.Screen
 
 object Global {
   var currentScreen by mutableStateOf<Screen>(Screen.Home)
-  var isLightMode by mutableStateOf<Boolean>(true)
-  var themeType by mutableStateOf<ThemeType>(ThemeType.Mint)
-  val theme
-    get() = themeType.lightColor.takeIf { isLightMode } ?: themeType.darkColor
+  var theme by mutableStateOf<ThemeType>(ThemeType.Mint)
 
   fun toggleTheme() {
-    isLightMode = !isLightMode
+    theme.isLightMode = !theme.isLightMode
   }
 }
 

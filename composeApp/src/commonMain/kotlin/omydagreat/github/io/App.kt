@@ -6,7 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import omydagreat.github.io.Common.Global
-import omydagreat.github.io.Common.Screen
+import omydagreat.github.io.Common.Util.Screen
 import omydagreat.github.io.Details.DetailsScreen
 import omydagreat.github.io.Home.HomeScreen
 import omydagreat.github.io.Stocks.StocksScreen
@@ -18,14 +18,12 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  */
 @Composable
 @Preview
-fun App() {
-  MaterialTheme(colors = Global.theme) {
-    Box(modifier = Modifier.background(Global.theme.background)) {
-      when (Global.currentScreen) {
-        is Screen.Home -> HomeScreen { screen -> Global.currentScreen = screen }
-        is Screen.Details -> DetailsScreen { Global.currentScreen = Screen.Home }
-        is Screen.Stocks -> StocksScreen { Global.currentScreen = Screen.Home }
-      }
+fun App() = MaterialTheme(colors = Global.theme.colors) {
+  Box(modifier = Modifier.background(Global.theme.colors.background)) {
+    when (Global.currentScreen) {
+      is Screen.Home -> HomeScreen { screen -> Global.currentScreen = screen }
+      is Screen.Details -> DetailsScreen { Global.currentScreen = Screen.Home }
+      is Screen.Stocks -> StocksScreen { Global.currentScreen = Screen.Home }
     }
   }
 }

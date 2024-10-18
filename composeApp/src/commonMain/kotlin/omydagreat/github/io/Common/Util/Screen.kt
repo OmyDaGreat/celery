@@ -1,4 +1,4 @@
-package omydagreat.github.io.Common
+package omydagreat.github.io.Common.Util
 
 /**
  * Represents different screens in the application.
