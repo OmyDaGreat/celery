@@ -21,19 +21,21 @@ fun DetailsScreen(onNavigate: () -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
       Heading4(text = "This is the Details Screen")
       Spacer(modifier = Modifier.height(16.dp))
-      Button(onClick = { onNavigate() }) {
+      ThemedButton(onClick = { onNavigate() }) {
         Body2("Go to Home")
       }
       Spacer(modifier = Modifier.height(16.dp))
-      Button(onClick = { Global.toggleTheme() }) {
+      ThemedButton(onClick = { Global.toggleTheme() }) {
         Body2("Toggle ${"Light".takeIf { !Global.theme.isLightMode } ?: "Dark"} Mode")
       }
       Spacer(modifier = Modifier.height(16.dp))
-      Box {
-        Button(onClick = { expanded = true }) {
+      Box(
+        contentAlignment = Alignment.Center
+      ) {
+        ThemedButton(onClick = { expanded = true }) {
           Body2("Select Theme")
         }
-        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+        ThemedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
           themes.forEach { themeType ->
             DropdownMenuItem(onClick = {
               Global.theme = themeType

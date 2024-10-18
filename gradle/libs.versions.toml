@@ -9,6 +9,7 @@ compose-plugin = "1.6.11"
 kotlin = "2.0.20"
 ktorClientCore = "2.3.12"
 pluginSerializationV = "2.0.21"
+spotlessV = "7.0.0.BETA3"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -27,3 +28,4 @@ jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 pluginSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "pluginSerializationV" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotlessV" }

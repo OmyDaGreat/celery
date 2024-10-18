@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -17,9 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import omydagreat.github.io.Common.Util.Body1
-import omydagreat.github.io.Common.Util.Body2
-import omydagreat.github.io.Common.Util.Heading4
+import omydagreat.github.io.Common.Util.*
 
 /**
  * Composable function that displays stock information.
@@ -51,7 +48,7 @@ fun StocksScreen(onNavigate: () -> Unit) {
       Body1(text = stockInfo)
       Spacer(modifier = Modifier.height(16.dp))
       // Button to navigate back to the home screen
-      Button(onClick = { onNavigate() }) {
+      ThemedButton(onClick = { onNavigate() }) {
         Body2("Go to Home")
       }
     }

@@ -1,48 +1,33 @@
-@file:Suppress("unused")
-
 package omydagreat.github.io.Common.Util
 
-import androidx.compose.material.MaterialTheme.typography
-import androidx.compose.material.Text
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.DropdownMenu
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import omydagreat.github.io.Common.Global
 
 @Composable
-fun Heading1(text: String) = Text(
-  text = text, style = typography.h1, color = Global.theme.colors.onBackground
-)
+fun ThemedButton(
+  onClick: () -> Unit, modifier: Modifier = Modifier, content: @Composable () -> Unit
+) = Button(
+  onClick = onClick, colors = ButtonDefaults.buttonColors(
+    backgroundColor = Global.theme.colors.onBackground, contentColor = Global.theme.colors.background
+  ), contentPadding = PaddingValues(16.dp), modifier = modifier
+) {
+  content()
+}
 
 @Composable
-fun Heading2(text: String) = Text(
-  text = text, style = typography.h2, color = Global.theme.colors.onBackground
-)
-
-@Composable
-fun Heading3(text: String) = Text(
-  text = text, style = typography.h3, color = Global.theme.colors.onBackground
-)
-
-@Composable
-fun Heading4(text: String) = Text(
-  text = text, style = typography.h4, color = Global.theme.colors.onBackground
-)
-
-@Composable
-fun Heading5(text: String) = Text(
-  text = text, style = typography.h5, color = Global.theme.colors.onBackground
-)
-
-@Composable
-fun Heading6(text: String) = Text(
-  text = text, style = typography.h6, color = Global.theme.colors.onBackground
-)
-
-@Composable
-fun Body1(text: String) = Text(
-  text = text, style = typography.body1, color = Global.theme.colors.onBackground
-)
-
-@Composable
-fun Body2(text: String) = Text(
-  text = text, style = typography.body2, color = Global.theme.colors.background
-)
+fun ThemedDropdownMenu(
+  expanded: Boolean, onDismissRequest: () -> Unit, content: @Composable () -> Unit
+) = DropdownMenu(
+  expanded = expanded,
+  onDismissRequest = onDismissRequest,
+  modifier = Modifier.background(Global.theme.colors.onBackground)
+) {
+  content()
+}

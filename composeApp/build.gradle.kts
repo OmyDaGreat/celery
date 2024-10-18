@@ -7,12 +7,12 @@ plugins {
   alias(libs.plugins.jetbrainsCompose)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.pluginSerialization)
+  alias(libs.plugins.spotless)
 }
 
 kotlin {
   androidTarget {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    compilerOptions { jvmTarget.set(JvmTarget.JVM_11) }
+    @OptIn(ExperimentalKotlinGradlePluginApi::class) compilerOptions { jvmTarget.set(JvmTarget.JVM_11) }
   }
 
   listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach { iosTarget ->
@@ -70,4 +70,10 @@ android {
   }
   buildFeatures { compose = true }
   dependencies { debugImplementation(compose.uiTooling) }
+}
+
+spotless {
+  kotlin {
+    ktfmt().googleStyle()
+  }
 }
