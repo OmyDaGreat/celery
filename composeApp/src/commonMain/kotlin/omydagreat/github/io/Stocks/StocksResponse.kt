@@ -12,7 +12,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class Stock(
-  val data: Data? = null, val message: String? = null, val status: Status
+  val data: Data? = null, val message: String? = null, val status: Status? = null
 ) {
   /**
    * Provides a detailed and formatted string representation of the Stock object.
@@ -45,7 +45,7 @@ data class Stock(
         appendLine("Ask Size: ${it.bidAsk.askSize.value}")
       } ?: appendLine("No data available")
       appendLine("Message: ${message ?: "No message"}")
-      appendLine("Status: ${status.rCode} - ${status.developerMessage ?: "No developer message"}")
+      appendLine("Status: ${status?.rCode ?: "N/A"} - ${status?.developerMessage ?: "No developer message"}")
     }
   }
 }
