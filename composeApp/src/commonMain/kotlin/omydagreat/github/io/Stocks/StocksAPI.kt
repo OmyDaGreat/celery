@@ -28,10 +28,10 @@ fun createHttpClientCommon() = HttpClient {
  * The API can be found [here](https://rapidapi.com/banikhp13tu/api/nasdaq-stock-summary)
  *
  * @param stock The stock asset symbol (e.g., "MSFT" for Microsoft).
- * @return A [StockResponse] object containing the stock summary.
+ * @return A [Stock] object containing the stock summary.
  * @throws Exception if the HTTP request fails.
  */
-suspend fun fetchStockSummary(stock: String): StockResponse {
+suspend fun fetchStockSummary(stock: String): Stock {
   val client = createHttpClientCommon()
   val response: HttpResponse = client.get("https://nasdaq-stock-summary.p.rapidapi.com/api/quote/$stock/summary?assetclass=stocks") {
     headers {

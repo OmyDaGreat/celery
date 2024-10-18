@@ -2,32 +2,49 @@ package omydagreat.github.io.Details
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import omydagreat.github.io.Common.Global
+import omydagreat.github.io.Common.Util.*
 
-/**
- * Composable function that represents the Details screen.
- *
- * @param onNavigate A lambda function that is called when the navigate button is clicked.
- */
 @Composable
 fun DetailsScreen(onNavigate: () -> Unit) {
+  var expanded by remember { mutableStateOf(false) }
+  val themes = ThemeType.entries.toTypedArray()
+
   Box(
-    modifier = Modifier.fillMaxSize(),
-    contentAlignment = Alignment.Center
+    modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
   ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-      Text(text = "This is the Details Screen", style = MaterialTheme.typography.h4, color = Global.theme.onBackground)
+      Heading4(text = "This is the Details Screen")
       Spacer(modifier = Modifier.height(16.dp))
       Button(onClick = { onNavigate() }) {
-        Text("Go to Home")
+        Body2("Go to Home")
       }
       Spacer(modifier = Modifier.height(16.dp))
       Button(onClick = { Global.toggleTheme() }) {
-        Text("Toggle ${if (Global.isDarkMode) "Light" else "Dark"} Mode")
+        Body2("Toggle ${"Light".takeIf { !Global.isLightMode } ?: "Dark"} Mode")
+      }
+      Spacer(modifier = Modifier.height(16.dp))
+      Box {
+        Button(onClick = { expanded = true }) {
+          Body2("Select Theme")
+        }
+        DropdownMenu(
+          expanded = expanded,
+          onDismissRequest = { expanded = false }
+        ) {
+          themes.forEach { themeType ->
+            DropdownMenuItem(onClick = {
+              Global.themeType = themeType
+              expanded = false
+            }) {
+              Body2(text = themeType.name)
+            }
+          }
+        }
       }
     }
   }

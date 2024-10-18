@@ -44,5 +44,5 @@ fun Body1(text: String) = Text(
 
 @Composable
 fun Body2(text: String) = Text(
-  text = text, style = typography.body2, color = Global.theme.onBackground
+  text = text, style = typography.body2, color = Global.theme.background
 )
