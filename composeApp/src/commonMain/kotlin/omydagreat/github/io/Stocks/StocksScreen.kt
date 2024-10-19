@@ -26,14 +26,14 @@ import omydagreat.github.io.Common.Util.*
 @Composable
 fun StocksScreen(onNavigate: () -> Unit) {
   // State to hold the stock information and user input
-  var stockInfo by remember { mutableStateOf("Loading...") }
+  var stockInfo by remember { mutableStateOf("Waiting for Stock Input") }
   var stockSymbol by remember { mutableStateOf("AAPL") }
   val coroutineScope = rememberCoroutineScope()
 
   // Function to fetch stock information
   fun fetchStockInfo() {
     coroutineScope.launch {
-      stockInfo = fetchStockSummary(stockSymbol).toString()
+      stockInfo = fetchStockSummary(stockSymbol)?.toString() ?: "No data available"
     }
   }
 

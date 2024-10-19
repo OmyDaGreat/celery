@@ -1,9 +1,9 @@
 package omydagreat.github.io.Stocks
 
 import io.ktor.client.*
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 
@@ -31,16 +31,19 @@ fun createHttpClientCommon() = HttpClient {
  * @return A [Stock] object containing the stock summary.
  * @throws Exception if the HTTP request fails.
  */
-suspend fun fetchStockSummary(stock: String): Stock {
+suspend fun fetchStockSummary(stock: String): Stock? {
   val client = createHttpClientCommon()
-  val response: HttpResponse = client.get("https://nasdaq-stock-summary.p.rapidapi.com/api/quote/$stock/summary?assetclass=stocks") {
-    headers {
-      append("x-rapidapi-key", "78dbdb9dd1msh2d5c5f88cb48d0ap19380fjsna5c30f3e04c6")
-      append("x-rapidapi-host", "nasdaq-stock-summary.p.rapidapi.com")
-      append("Content-Type", "application/json")
-      append("Host", "api.nasdaq.com")
+  val response: HttpResponse =
+    client.get("https://nasdaq-stock-summary.p.rapidapi.com/api/quote/$stock/summary?assetclass=stocks") {
+      headers {
+        append("x-rapidapi-key", "78dbdb9dd1msh2d5c5f88cb48d0ap19380fjsna5c30f3e04c6")
+        append("x-rapidapi-host", "nasdaq-stock-summary.p.rapidapi.com")
+        append("Content-Type", "application/json")
+        append("Host", "api.nasdaq.com")
+      }
     }
-  }
   val responseBody = response.bodyAsText()
-  return Json.decodeFromString(responseBody)
+  Json.decodeFromString<Stock>(responseBody).apply {
+    return if (this.data == null) null else this
+  }
 }

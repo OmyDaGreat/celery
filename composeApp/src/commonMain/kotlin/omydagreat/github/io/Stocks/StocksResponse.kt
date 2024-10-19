@@ -146,11 +146,22 @@ data class BidAsk(
 /**
  * Represents the status of the stock data retrieval.
  *
- * @property rCode The response code of the status.
- * @property bCodeMessage An optional message related to the status.
- * @property developerMessage An optional developer message related to the status.
+ * @property rCode The response code indicating the status of the request.
+ * @property bCodeMessage A list of error messages, if any.
+ * @property developerMessage An optional message for developers.
  */
 @Serializable
 data class Status(
-  val rCode: Int, val bCodeMessage: String? = null, val developerMessage: String? = null
+  val rCode: Int, val bCodeMessage: List<ErrorMessage>? = null, val developerMessage: String? = null
+)
+
+/**
+ * Represents an error message with a code and description.
+ *
+ * @property code The error code.
+ * @property errorMessage The description of the error.
+ */
+@Serializable
+data class ErrorMessage(
+  val code: Int, val errorMessage: String
 )
