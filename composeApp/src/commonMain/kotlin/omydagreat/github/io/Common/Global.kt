@@ -15,7 +15,3 @@ object Global {
     theme.isLightMode = !theme.isLightMode
   }
 }
-
-@Stable
-val Color.Companion.Mint: Color
-  get() = hsv(103f, 0.22f, 0.99f)
