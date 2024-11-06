@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 
 enum class ThemeType(private val lightColor: Colors, private val darkColor: Colors) {
   Mint(
-    lightColors(background = Color.Mint, onBackground = Color.Black),
+    lightColors(background = Color.Mint, onBackground = Color.DarkGray),
     darkColors(background = Color.Black, onBackground = Color.Mint)
   ),
   Plain(
@@ -31,8 +31,8 @@ enum class ThemeType(private val lightColor: Colors, private val darkColor: Colo
     darkColors(background = Color.Black, onBackground = Color.ForestGreen)
   ),
   Lavender(
-    lightColors(background = Color.Lavender, onBackground = Color.Black),
-    darkColors(background = Color.Black, onBackground = Color.Lavender)
+    lightColors(background = Color.Lavender, onBackground = Color.DarkLavender),
+    darkColors(background = Color.DarkLavender, onBackground = Color.Lavender)
   ),
   Coral(
     lightColors(background = Color.Coral, onBackground = Color.White),
@@ -64,6 +64,10 @@ val Color.Companion.ForestGreen: Color
 @Stable
 val Color.Companion.Lavender: Color
   get() = Color(0xFFE6E6FA)
+
+@Stable
+val Color.Companion.DarkLavender: Color
+  get() = Color(0xff9b679b)
 
 @Stable
 val Color.Companion.Coral: Color
