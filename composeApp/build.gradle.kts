@@ -33,6 +33,7 @@ kotlin {
       implementation(compose.foundation)
       implementation(compose.material)
       implementation(compose.ui)
+      implementation(compose.animation)
       implementation(compose.components.resources)
       implementation(compose.components.uiToolingPreview)
       implementation(libs.androidx.lifecycle.viewmodel)
@@ -40,6 +41,7 @@ kotlin {
       implementation(libs.ktor.client.core)
       implementation(libs.ktor.client.content.negotiation)
       implementation(libs.ktor.serialization.kotlinx.json)
+      implementation(libs.precompose)
     }
     iosMain.dependencies {
       implementation(libs.ktor.client.darwin)

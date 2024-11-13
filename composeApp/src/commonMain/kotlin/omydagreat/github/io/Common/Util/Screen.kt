@@ -5,7 +5,7 @@ package omydagreat.github.io.Common.Util
  *
  * @property route The route associated with the screen.
  */
-sealed class Screen(private val route: String) {
+sealed class Screen(val route: String) {
 
   /**
    * Represents the Home screen.

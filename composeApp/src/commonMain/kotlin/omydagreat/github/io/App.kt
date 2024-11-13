@@ -1,12 +1,11 @@
 package omydagreat.github.io
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import omydagreat.github.io.Common.Global
-import omydagreat.github.io.Common.Util.Screen
+import androidx.compose.runtime.Composable
+import moe.tlaster.precompose.PreComposeApp
+import moe.tlaster.precompose.navigation.NavHost
+import moe.tlaster.precompose.navigation.path
+import moe.tlaster.precompose.navigation.rememberNavigator
+import omydagreat.github.io.Common.Util.TBox
 import omydagreat.github.io.Details.DetailsScreen
 import omydagreat.github.io.Home.HomeScreen
 import omydagreat.github.io.Stocks.StocksScreen
@@ -18,12 +17,26 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
  */
 @Composable
 @Preview
-fun App() = MaterialTheme(colors = Global.theme.colors) {
-  Box(modifier = Modifier.background(Global.theme.colors.background)) {
-    when (Global.currentScreen) {
-      is Screen.Home -> HomeScreen { screen -> Global.currentScreen = screen }
-      is Screen.Details -> DetailsScreen { Global.currentScreen = Screen.Home }
-      is Screen.Stocks -> StocksScreen { Global.currentScreen = Screen.Home }
+fun App() = PreComposeApp {
+  val navigator = rememberNavigator()
+  NavHost(
+    navigator = navigator, initialRoute = "/home"
+  ) {
+    scene(route = "/home") {
+      TBox {
+        HomeScreen(navigator, "/details", "/stocks/MSFT")
+      }
+    }
+    scene(route = "/details") {
+      TBox {
+        DetailsScreen(navigator, "/home")
+      }
+    }
+    scene(route = "/stocks/{symbol}") { backStackEntry ->
+      val symbol: String? = backStackEntry.path<String>("symbol")
+      TBox {
+        StocksScreen(navigator, "/home", symbol ?: "AAPL")
+      }
     }
   }
 }
