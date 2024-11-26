@@ -16,10 +16,10 @@ import omydagreat.github.io.util.gate
  *
  * @param navi The Navigator instance for navigation.
  * @param detailsRoute The route to navigate to the Details screen.
- * @param stocksRoute The route to navigate to the Stocks screen.
+ * @param stockRoute The route to navigate to the Stocks screen.
  */
 @Composable
-fun HomeScreen(navi: Navigator, detailsRoute: String, stocksRoute: String) = Box(
+fun HomeScreen(navi: Navigator, detailsRoute: String, stockRoute: String) = Box(
   modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
 ) {
   Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -29,8 +29,8 @@ fun HomeScreen(navi: Navigator, detailsRoute: String, stocksRoute: String) = Box
       Body2("Go to Details")
     }
     Spacer(modifier = Modifier.height(16.dp))
-    ThemedButton(onClick = { navi gate stocksRoute }) {
-      Body2("Go to Stocks")
+    ThemedButton(onClick = { navi gate stockRoute }) {
+      Body2("Go to Stock")
     }
   }
 }

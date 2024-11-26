@@ -9,6 +9,7 @@ import omydagreat.github.io.util.TBox
 import omydagreat.github.io.screens.settings.SettingsScreen
 import omydagreat.github.io.screens.home.HomeScreen
 import omydagreat.github.io.screens.stock.StockScreen
+import omydagreat.github.io.util.withSymbol
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 const val HOME_ROUTE = "/home"
@@ -28,14 +29,13 @@ fun App() = PreComposeApp {
       navigator = navigator, initialRoute = HOME_ROUTE
     ) {
       scene(route = HOME_ROUTE) {
-        HomeScreen(navigator, DETAILS_ROUTE, STOCKS_ROUTE.replace("{symbol}", "MSFT"))
+        HomeScreen(navigator, DETAILS_ROUTE, STOCKS_ROUTE withSymbol "MSFT")
       }
       scene(route = DETAILS_ROUTE) {
         SettingsScreen(navigator, HOME_ROUTE)
       }
-      scene(route = STOCKS_ROUTE) { backStackEntry ->
-        val symbol: String? = backStackEntry.path<String>("symbol")
-        StockScreen(navigator, HOME_ROUTE, symbol ?: "AAPL")
+      scene(route = STOCKS_ROUTE) { stack ->
+        StockScreen(navigator, HOME_ROUTE, stack.path<String>("symbol") ?: "AAPL")
       }
     }
   }
