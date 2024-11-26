@@ -6,7 +6,7 @@ import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.path
 import moe.tlaster.precompose.navigation.rememberNavigator
 import omydagreat.github.io.Common.Util.TBox
-import omydagreat.github.io.Details.DetailsScreen
+import omydagreat.github.io.Settings.SettingsScreen
 import omydagreat.github.io.Home.HomeScreen
 import omydagreat.github.io.Stocks.StocksScreen
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -31,7 +31,7 @@ fun App() = PreComposeApp {
         HomeScreen(navigator, DETAILS_ROUTE, STOCKS_ROUTE.replace("{symbol}", "MSFT"), listOf("AAPL", "GOOGL", "TSLA"))
       }
       scene(route = DETAILS_ROUTE) {
-        DetailsScreen(navigator, HOME_ROUTE)
+        SettingsScreen(navigator, HOME_ROUTE)
       }
       scene(route = STOCKS_ROUTE) { backStackEntry ->
         val symbol: String? = backStackEntry.path<String>("symbol")

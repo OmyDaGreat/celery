@@ -1,4 +1,4 @@
-package omydagreat.github.io.Details
+package omydagreat.github.io.Settings
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.DropdownMenuItem
@@ -18,7 +18,7 @@ import omydagreat.github.io.Common.Util.*
  * @param homeRoute The route to navigate to the Home screen.
  */
 @Composable
-fun DetailsScreen(navi: Navigator, homeRoute: String) {
+fun SettingsScreen(navi: Navigator, homeRoute: String) {
   Box(
     modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
   ) {
