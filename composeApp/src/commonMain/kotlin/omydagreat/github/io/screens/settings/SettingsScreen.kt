@@ -1,4 +1,4 @@
-package omydagreat.github.io.Settings
+package omydagreat.github.io.screens.settings
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.DropdownMenuItem
@@ -7,9 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import moe.tlaster.precompose.navigation.Navigator
-import omydagreat.github.io.Common.Global
-import omydagreat.github.io.Common.ThemeType
-import omydagreat.github.io.Common.Util.*
+import omydagreat.github.io.util.*
 
 /**
  * Composable function for the Details screen.

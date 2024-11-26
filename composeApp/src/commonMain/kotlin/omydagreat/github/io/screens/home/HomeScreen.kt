@@ -1,4 +1,4 @@
-package omydagreat.github.io.Home
+package omydagreat.github.io.screens.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -6,10 +6,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import moe.tlaster.precompose.navigation.Navigator
-import omydagreat.github.io.Common.Util.Body2
-import omydagreat.github.io.Common.Util.Heading4
-import omydagreat.github.io.Common.Util.ThemedButton
-import omydagreat.github.io.Common.Util.gate
+import omydagreat.github.io.util.Body2
+import omydagreat.github.io.util.Heading4
+import omydagreat.github.io.util.ThemedButton
+import omydagreat.github.io.util.gate
 
 /**
  * Composable function for the Home screen.

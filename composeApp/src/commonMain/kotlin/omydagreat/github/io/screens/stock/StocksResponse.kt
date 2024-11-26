@@ -1,4 +1,4 @@
-package omydagreat.github.io.Stocks
+package omydagreat.github.io.screens.stock
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

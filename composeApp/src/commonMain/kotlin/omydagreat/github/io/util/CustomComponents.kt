@@ -1,4 +1,4 @@
-package omydagreat.github.io.Common.Util
+package omydagreat.github.io.util
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.PaddingValues
@@ -8,7 +8,6 @@ import androidx.compose.material.DropdownMenu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import omydagreat.github.io.Common.Global
 
 /**
  * A themed button composable that applies custom colors and padding.

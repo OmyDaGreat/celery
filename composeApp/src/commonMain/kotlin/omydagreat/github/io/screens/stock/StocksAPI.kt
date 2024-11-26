@@ -1,4 +1,4 @@
-package omydagreat.github.io.Stocks
+package omydagreat.github.io.screens.stock
 
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*

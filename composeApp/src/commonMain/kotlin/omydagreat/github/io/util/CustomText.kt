@@ -1,11 +1,10 @@
 @file:Suppress("unused")
 
-package omydagreat.github.io.Common.Util
+package omydagreat.github.io.util
 
 import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import omydagreat.github.io.Common.Global
 
 @Composable
 fun Heading1(text: String) = Text(

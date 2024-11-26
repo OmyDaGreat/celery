@@ -1,4 +1,4 @@
-package omydagreat.github.io.Common
+package omydagreat.github.io.util
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

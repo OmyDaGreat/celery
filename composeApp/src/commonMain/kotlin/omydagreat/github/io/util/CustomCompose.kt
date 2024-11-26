@@ -1,4 +1,4 @@
-package omydagreat.github.io.Common.Util
+package omydagreat.github.io.util
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import omydagreat.github.io.Common.Global
 
 /**
  * A composable function that creates a themed Box with a background color.

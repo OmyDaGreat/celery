@@ -1,4 +1,4 @@
-package omydagreat.github.io.Common
+package omydagreat.github.io.util
 
 import androidx.compose.material.Colors
 import androidx.compose.material.darkColors

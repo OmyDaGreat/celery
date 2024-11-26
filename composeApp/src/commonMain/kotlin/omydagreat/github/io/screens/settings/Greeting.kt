@@ -1,4 +1,4 @@
-package omydagreat.github.io.Settings
+package omydagreat.github.io.screens.settings
 
 import omydagreat.github.io.getPlatform
 
